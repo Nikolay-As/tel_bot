@@ -69,6 +69,88 @@ bott.on('message',msg=>{ // Прослушиваем ответ от Телег�
 
     bott.sendMessage(chatId,fs.readFileSync('./files/Продукты компании/doc.txt','utf8'))
 
+    bott.sendVideo(chatId,'./files/Продукты компании/2.mp4')
+
+    bott.sendVideo(chatId,'./files/Продукты компании/3.mp4')
+
+    bott.sendMessage(chatId,fs.readFileSync('./files/Продукты компании/doc2.txt','utf8'))
+
+    bott.sendVideo(chatId,'./files/Продукты компании/4.mp4')
+
+    bott.sendMessage(chatId,fs.readFileSync('./files/Продукты компании/doc3.txt','utf8'))
+
+    bott.sendVideo(chatId,'./files/Продукты компании/5.mp4')
+
+
    }
+
+
+   if (text==='🎥Проморолик'){
+    bott.sendMessage(chatId,fs.readFileSync('./files/Проморолик/doc.txt','utf8'))
+    bott.sendMessage(chatId,"Sending video...")
+    bott.sendVideo(chatId,'./files/Проморолик/1.mp4')
+
+    bott.sendMessage(chatId,"Подменю",{
+        reply_markup:{
+            keyboard: [
+                ['🗽Проморолик на английском языке'],
+                ['Назад']
+                        ]}
+        })
+
+
+   }
+
+   if (text==='🗽Проморолик на английском языке'){
+    bott.sendMessage(chatId,"Sending video...")
+    bott.sendVideo(chatId,'./files/Проморолик/2.mp4')
+   
+
+   bott.sendMessage(chatId,"Подменю",{
+    reply_markup:{
+        keyboard: [
+            ['🗽Проморолик на английском языке'],
+            ['Назад']
+                    ]}
+    })
+
+    }
+
+    if (text==='Назад'){
+        bott.sendMessage(chatId,"Главное меню",{
+            reply_markup:{
+                keyboard: [
+                    ['🙋🏻‍♂️Основатель компании'],
+                    ['💰Криптовалюта Artery', '🧩Продукты компании'],
+                    ['🎥Проморолик','📱Приложение'],
+                    ['🎯С чего начать'],
+                    ['💎Криптовалюта простым языком'],
+                    ['🏛Маркетинг для каждого👌🏻'],
+                    ['💁🏻‍♂️Откуда берутся деньги'],
+                    ['💰Обменник','🧑🏻‍💻Валидатор и доход💰']
+                ]
+            }
+        })
+    }
+
+
+    if (text==="📱Приложение"){
+        bott.sendMessage(chatId,fs.readFileSync('./files/Приложение/doc.txt','utf8'))
+    }
+
+
+    if (text==="🎯С чего начать"){
+        bott.sendPhoto(chatId,'./files/С чего начать/1.jpg')
+        bott.sendMessage(chatId,fs.readFileSync('./files/С чего начать/doc.txt','utf8'))
+    }
+
+    if (text==="💎Криптовалюта простым языком"){
+        bott.sendMessage(chatId,fs.readFileSync('./files/Криптовалюта простым языком/doc.txt','utf8'))
+        bott.sendVideoNote(chatId,'https://www.youtube.com/watch?v=tGL024WpzZc')//'./files/Криптовалюта простым языком/1.mp4') //////////
+        //bott.sendDocument(chatId,'./files/Криптовалюта простым языком/1.mp4')
+    }
+
+
+
     console.log(msg);
 })
